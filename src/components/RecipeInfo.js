@@ -32,7 +32,7 @@ const useStyles = makeStyles( theme => ({
     link: {
         fontSize: '1em',
         position: 'absolute',
-        left: '0',
+        left: 70,
         color: '#b2dfdb',
         bottom: '0',
         margin: '0 0.5em',

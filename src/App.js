@@ -8,6 +8,24 @@ require("dotenv").config();
 const useStyles = makeStyles( theme => ({
   app: {
     textAlign: 'center',
+  },
+  heading: {
+    marginBottom: '3em',
+    marginTop: '1.8em',
+    color: 'white',
+  },
+  header: {
+    fontSize: '5.3em',
+    fontFamily: '"Hi Melody", sans-serif',
+    lineHeight: 0,
+    marginTop: '0.5em',
+    marginBottom: '0.1em',
+    display: 'inline-block',
+  },
+  para: {
+    fontFamily: '"Hi Melody", sans-serif',
+    fontWeight: '700',
+    fontSize: '1.45em',
   }
 }))
 
@@ -19,7 +37,7 @@ function App() {
 
   const [recipes, setRecipes] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [recipesPerPage] = useState(5);
+  const [recipesPerPage] = useState(4);
 
   let URL = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=`;
 
@@ -43,6 +61,10 @@ function App() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <div className={classes.app}>
+      <div className = {classes.heading}>
+          <h1 className={classes.header}>NIETS</h1>
+          <p className={classes.para}>Naidu's Diet Recipes</p>
+        </div>
         <SearchBar submit={searchRecipe} />
         <div> 
           <RecipesContainer recipeResult={currentRecipes} />
