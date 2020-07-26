@@ -12,7 +12,7 @@ function RecipesContainer({recipeResult}) {
         title ={item.recipe.label}
         image = {item.recipe.image}
         url = {item.recipe.url}
-        yield = {item.recipe.yield}
+        yields = {item.recipe.yield}
         healthLabels = {item.recipe.healthLabels}
         ingredients = {item.recipe.ingredientLines}
         calories= {item.recipe.calories}

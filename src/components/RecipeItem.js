@@ -1,7 +1,8 @@
 import React from 'react'
 import RecipeInfo from './RecipeInfo'
+import HealthInfo from './HealthInfo'
 
-function RecipeItem({image,url,title,healthLabels,ingredients}) {
+function RecipeItem({image,url,title,healthLabels,yields,calories,digest}) {
     return (
         <li >
         <img src = {image} alt = "Recipe" />
@@ -10,6 +11,7 @@ function RecipeItem({image,url,title,healthLabels,ingredients}) {
           url = {url}
           healthLabels = {healthLabels}
         />
+        <HealthInfo calories = {calories} digest = {digest} yield = {yields} /> 
       </li>
     )
 }
