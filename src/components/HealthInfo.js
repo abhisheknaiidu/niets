@@ -14,12 +14,15 @@ const useStyles = makeStyles( theme => ({
         textAlign: 'center',
         margin: 0,
         fontSize: '1em',
+        color: '#33691e',
       },
       calories: {
         textAlign: 'center',
         marginTop: 0,
+        color: '#7cb342',
         fontSize: '0.8em',
-        paddingTop: '0.5em',
+        marginLeft: 15,
+        paddingTop: '1em',
       },
       chart: {
         position: 'absolute !important',
@@ -64,7 +67,17 @@ const getChartInfo = (digest, numServings) => {
 
 function HealthInfo({calories, digest, yields}) {
 
+    let dataLabel = [];
+    for(var i = 0; i < 3; i++) {
+      dataLabel.push(digest[i].total);
+    }
 
+    let fat = dataLabel[0];
+    let carbs = dataLabel[1];
+    let protein = dataLabel[2];
+    let ratio = (protein/(protein + carbs + fat))*100;
+    let carbratio = ((carbs + fat)/(protein + carbs + fat)) * 100;
+    // console.log(ratio2);
     const classes = useStyles();
    let caloriesInfo = null;
 
@@ -89,10 +102,16 @@ function HealthInfo({calories, digest, yields}) {
     return (
         <div className = {classes.healthInf}>
         <h3 className = {classes.nutrition}>{yields ? "Nutrition Per Serving" : "Nutrition (entire recipe)"}</h3>
+        <li style={{ display: 'inline-flex'}}>
+        {ratio>15 ?<h3 className = {classes.calories}>High Protein</h3> : (ratio >=12 && ratio<=15 ? <h3 className = {classes.calories}>Balanced</h3> : <h3 className = {classes.calories}>Regular</h3>)}
+        {carbratio>50 ? <h3 className = {classes.calories}>High Carb</h3> : null }
         {caloriesInfo}
+        </li>
         {digest ? null : <p>No additional health information.</p>}
         {nutritionChart}
       </div>
+
+      
     )
 }
 
