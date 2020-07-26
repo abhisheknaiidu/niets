@@ -16,6 +16,17 @@ const theme = createMuiTheme({
         fontSize: 12,
         fontFamily: 'Balsamiq Sans'
       },
+      overrides: {
+        MuiCssBaseline: {
+          "@global": {
+            body: {
+              background:
+                "url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80') no-repeat center center fixed",
+              backgroundSize: 'cover',
+            }
+          }
+        }
+      }
 })
 
 export default theme;
