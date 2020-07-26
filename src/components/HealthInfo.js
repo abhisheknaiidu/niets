@@ -3,7 +3,7 @@ import { Doughnut } from 'react-chartjs-2';
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles( theme => ({
-    healthInfo: {
+    healthInf: {
         position: 'absolute',
         left: '70%',
         width: '30%',
@@ -85,7 +85,7 @@ function HealthInfo({calories, digest, yields}) {
    }
 
     return (
-        <div className = {classes.healthInfo}>
+        <div className = {classes.healthInf}>
         <h3 className = {classes.nutrition}>{yields ? "Nutrition Per Serving" : "Nutrition (entire recipe)"}</h3>
         {caloriesInfo}
         {digest ? null : <p>No additional health information.</p>}
