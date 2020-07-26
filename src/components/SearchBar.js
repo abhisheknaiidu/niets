@@ -1,33 +1,47 @@
 
 import React, { useState } from "react";
+import { FormControl, InputLabel, Input, Button, makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles( theme => ({
+    searchbar: {
+      display: '',
+    },
+    button: {
+        marginTop: theme.spacing(1),
+        marginRight: 10,
+        // paddingRight: theme.spacing(1),
+        }
+  }))
 
 const SearchBar = (props) => {
-  const [search, setSearch] = useState("");
 
+    const classes = useStyles();
+    const [search, setSearch] = useState("");
+
+    function handleSubmit(e) {
+        props.submit(e, { search });
+        setSearch("");
+    }
   return (
-    <div className="row mainHeader">
-      <div className="col-md-6 searchArea">
-        <form
-          className="searchForm"
-          onSubmit={(e) => {
-            props.submit(e, { search });
-            setSearch("");
-          }}
-        >
-          <button type="submit" className="search-btn">
-            <i className="fas fa-search"></i>
-          </button>
-          <input
-            type="text"
+      <div className={classes.searchbar}>
+          <form 
+          onSubmit={handleSubmit}>
+              <FormControl>
+              <InputLabel>
+              Any Recipe Search
+              </InputLabel>
+              <Input type="text"
             className="search-bar"
             value={search}
             onChange={(e) => {
               setSearch(e.target.value);
-            }}
-          />
-        </form>
+            }} />
+            </FormControl>
+            <Button disabled={!search} className={classes.button} variant="contained" color="secondary" onClick={handleSubmit} >
+                Search
+            </Button>
+          </form>
       </div>
-    </div>
   );
 };
 

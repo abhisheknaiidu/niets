@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import SearchBar from './components/SearchBar';
 import RecipesContainer from './components/RecipesContainer';
+import { makeStyles } from '@material-ui/core';
 require("dotenv").config();
 
+const useStyles = makeStyles( theme => ({
+  app: {
+    textAlign: 'center',
+  }
+}))
 
 function App() {
 
-
+  const classes = useStyles();
   const APP_ID = '2b9b094c';
   const API_KEY = 'b78c0cd982cbaeeeb49c514faa135af1';
 
@@ -25,7 +31,7 @@ function App() {
     fetchRecipes();
   }
   return (
-    <div>
+    <div className={classes.app}>
         <SearchBar submit={searchRecipe} />
         <div> 
           <RecipesContainer recipeResult={recipes} />
