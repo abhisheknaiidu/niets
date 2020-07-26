@@ -1,4 +1,5 @@
 import React from 'react'
+import RecipeItem from './RecipeItem';
 
 function RecipesContainer({recipeResult}) {
 
@@ -6,9 +7,17 @@ function RecipesContainer({recipeResult}) {
 
     recipeItems = recipeResult.map((item, i) => {
       return (
-        <li>
-            {item.recipe.label}
-        </li>
+        <RecipeItem
+        key = {i}
+        title ={item.recipe.label}
+        image = {item.recipe.image}
+        url = {item.recipe.url}
+        yield = {item.recipe.yield}
+        healthLabels = {item.recipe.healthLabels}
+        ingredients = {item.recipe.ingredientLines}
+        calories= {item.recipe.calories}
+        digest = {item.recipe.digest}
+      />
       );
   
     });
