@@ -1,8 +1,22 @@
 import React from 'react'
 import RecipeItem from './RecipeItem';
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles( theme => ({
+    recipesContainer: {
+        width: '57em',
+        display: 'block',
+        position: 'relative',
+        margin: '3.5em auto',
+        marginBottom: 0,
+        transition: 'margin 1s',
+        zIndex : 99,
+    }
+  }))
 
 function RecipesContainer({recipeResult}) {
 
+    const classes = useStyles();
     let recipeItems;
 
     recipeItems = recipeResult.map((item, i) => {
@@ -22,7 +36,7 @@ function RecipesContainer({recipeResult}) {
   
     });
     return (
-        <div>
+        <div className={classes.recipesContainer}>
             {recipeItems} 
         </div>
     )

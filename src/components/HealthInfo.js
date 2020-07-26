@@ -1,5 +1,32 @@
 import React from 'react'
 import { Doughnut } from 'react-chartjs-2';
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles( theme => ({
+    healthInfo: {
+        position: 'absolute',
+        left: '70%',
+        width: '30%',
+        height: '100%',
+        boxSizing: 'border-box',
+    },
+    nutrition: {
+        margin: 0,
+        fontSize: '1em',
+      },
+      calories: {
+        marginTop: 0,
+        fontSize: '0.8em',
+        paddingTop: '0.5em',
+      },
+      chart: {
+        position: 'absolute !important',
+        top: '20% !important',
+        left: '13% !important',
+        width: '80% !important',
+        height: '80% !important',
+      }
+  }))
 
 const getChartInfo = (digest, numServings) => {
     if(numServings === undefined) numServings = 1;
@@ -36,12 +63,13 @@ const getChartInfo = (digest, numServings) => {
 function HealthInfo({calories, digest, yields}) {
 
 
+    const classes = useStyles();
    let caloriesInfo = null;
 
    if(calories && yields) {
-     caloriesInfo = (<h3 className = "calories">{Math.round(calories/yields)} calories</h3>);
+     caloriesInfo = (<h3 className = {classes.calories}>{Math.round(calories/yields)} calories</h3>);
    } else if(calories) {
-     caloriesInfo = (<h3 className = "calories">{Math.round(calories)} calories</h3>);
+     caloriesInfo = (<h3 className = {classes.calories}>{Math.round(calories)} calories</h3>);
    }
  
  
@@ -50,15 +78,15 @@ function HealthInfo({calories, digest, yields}) {
    if(digest) {
      let chartInfo = getChartInfo(digest, yields);
      nutritionChart = (
-       <div className = "chart">
+       <div className = {classes.chart}>
          <Doughnut data = {chartInfo[0]} options = {chartInfo[1]}/>
        </div>
      );
    }
 
     return (
-        <div className = "health-info">
-        <h3 className = "nutrition">{yields ? "Nutrition Per Serving" : "Nutrition (entire recipe)"}</h3>
+        <div className = {classes.healthInfo}>
+        <h3 className = {classes.nutrition}>{yields ? "Nutrition Per Serving" : "Nutrition (entire recipe)"}</h3>
         {caloriesInfo}
         {digest ? null : <p>No additional health information.</p>}
         {nutritionChart}
