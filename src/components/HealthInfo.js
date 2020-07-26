@@ -5,16 +5,18 @@ import { makeStyles } from '@material-ui/core';
 const useStyles = makeStyles( theme => ({
     healthInf: {
         position: 'absolute',
-        left: '70%',
-        width: '30%',
+        left: '65%',
+        width: '35%',
         height: '100%',
         boxSizing: 'border-box',
     },
     nutrition: {
+        textAlign: 'center',
         margin: 0,
         fontSize: '1em',
       },
       calories: {
+        textAlign: 'center',
         marginTop: 0,
         fontSize: '0.8em',
         paddingTop: '0.5em',

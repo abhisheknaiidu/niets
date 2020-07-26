@@ -28,7 +28,7 @@ const SearchBar = (props) => {
           onSubmit={handleSubmit}>
               <FormControl>
               <InputLabel>
-              Any Recipe Search
+              What would you like to eat? 
               </InputLabel>
               <Input type="text"
             className="search-bar"

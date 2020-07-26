@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/core';
 const useStyles = makeStyles( theme => ({
     recipeInfo: {
         position: 'absolute',
-        left: '29%',
-        width: '40%',
+        left: '28%',
+        width: '35%',
         height: '100%',
         boxSizing: 'border-box',
         padding: '0 0.5em',
@@ -33,6 +33,7 @@ const useStyles = makeStyles( theme => ({
         fontSize: '1em',
         position: 'absolute',
         left: '0',
+        color: '#b2dfdb',
         bottom: '0',
         margin: '0 0.5em',
         padding: '0.5em',
