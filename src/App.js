@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import SearchBar from './components/SearchBar';
+import RecipesContainer from './components/RecipesContainer';
 require("dotenv").config();
 
 
@@ -26,13 +27,9 @@ function App() {
   return (
     <div>
         <SearchBar submit={searchRecipe} />
-        <ul>
-        { recipes.map( recipe => (
-          <li>
-            {recipe.recipe.label}
-          </li>
-        ))}
-        </ul>
+        <div> 
+          <RecipesContainer recipeResult={recipes} />
+        </div>
     </div>
   );
 }
