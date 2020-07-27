@@ -6,8 +6,6 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useMediaQuery } from '@material-ui/core';
 
 export default function Tags({tags, fixedOptions, value, setValue}) {
-//   const fixedOptions = [tags[6]];
-//   const [value, setValue] = React.useState([...fixedOptions, tags[1]]);
 
   const greaterThanMd = useMediaQuery( theme => theme.breakpoints.up('md'))
 
@@ -42,23 +40,3 @@ export default function Tags({tags, fixedOptions, value, setValue}) {
   );
 }
 
-// const tags = [
-//   { title: 'Sugar-Conscious' },
-//   { title: 'Vegan' },
-//   { title: 'Vegetarian' },
-//   { title: 'Peanut-Free' },
-//   { title: 'Tree-Nut-Free' },
-//   { title: 'Alcohol-Free' },
-//   { title: 'Paleo'},
-//   { title: 'Dairy-Free'},
-//   { title: 'Gluten-Free'},
-//   { title: 'Wheat-Free'},
-//   { title: 'Fat-Free'},
-//   { title: 'Low-Sugar'},
-//   { title: 'Egg-Free'},
-//   { title: 'Peanut-Free'},
-//   { title: 'Tree-Nut-Free'},
-//   { title: 'Soy-Free'},
-//   { title: 'Fish-Free'},
-//   { title: 'Shellfish-Free'},
-// ];
