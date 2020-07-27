@@ -14,12 +14,28 @@ const useStyles = makeStyles( theme => ({
     }
   }))
 
-function RecipesContainer({recipeResult}) {
+function RecipesContainer({value, recipeResult}) {
+
+    // const [filteredRecipes, setFilteredRecipes] = useState([]);
+    let data = [];
+    for(let i=0; i<value.length; i++) {
+        data.push(value[i].title);
+    }
+
+    // useEffect(() => [
+    //     setFilteredRecipes(
+    //     recipeResult.filter(item => item.recipe.healthLabels.includes(data[0]))
+    //     )
+    // ], [value])
+
+    const filteredRecipes = recipeResult.filter(item => item.recipe.healthLabels.includes(data[0]));
+    console.log(filteredRecipes);
+
 
     const classes = useStyles();
     let recipeItems;
 
-    recipeItems = recipeResult.map((item, i) => {
+    recipeItems = filteredRecipes.map((item, i) => {
       return (
         <RecipeItem
         key = {i}

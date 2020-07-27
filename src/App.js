@@ -3,6 +3,7 @@ import SearchBar from './components/SearchBar';
 import RecipesContainer from './components/RecipesContainer';
 import { makeStyles } from '@material-ui/core';
 import PaginationPage from './components/PaginationPage';
+import Tags from './components/Tags';
 require("dotenv").config();
 
 const useStyles = makeStyles( theme => ({
@@ -52,6 +53,11 @@ function App() {
     fetchRecipes();
   }
 
+
+
+  const fixedOptions = [];
+  const [value, setValue] = React.useState([...fixedOptions, tags[1]]);
+
   // get current recipes
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
@@ -66,8 +72,9 @@ function App() {
           <p className={classes.para}>Naidu's Diet Recipes</p>
         </div>
         <SearchBar submit={searchRecipe} />
+        <Tags tags={tags} fixedOptions={fixedOptions} value={value} setValue={setValue}/>
         <div> 
-          <RecipesContainer recipeResult={currentRecipes} />
+          <RecipesContainer value={value} recipeResult={currentRecipes} />
         </div>
         <PaginationPage recipesPerPage={recipesPerPage} totalRecipes={recipes.length} paginate={paginate} />
     </div>
@@ -75,3 +82,24 @@ function App() {
 }
 
 export default App;
+
+const tags = [
+  { title: 'Sugar-Conscious' },
+  { title: 'Vegan' },
+  { title: 'Vegetarian' },
+  { title: 'Peanut-Free' },
+  { title: 'Tree-Nut-Free' },
+  { title: 'Alcohol-Free' },
+  { title: 'Paleo'},
+  { title: 'Dairy-Free'},
+  { title: 'Gluten-Free'},
+  { title: 'Wheat-Free'},
+  { title: 'Fat-Free'},
+  { title: 'Low-Sugar'},
+  { title: 'Egg-Free'},
+  { title: 'Peanut-Free'},
+  { title: 'Tree-Nut-Free'},
+  { title: 'Soy-Free'},
+  { title: 'Fish-Free'},
+  { title: 'Shellfish-Free'},
+];
