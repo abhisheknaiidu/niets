@@ -5,6 +5,22 @@
 
 </div>
 
+### Features: 
+- Minimalistic UI
+- Single Page Application
+- Pagination
+- Categorise FCP using React Chart Library
+- Filter Options
+- Health Labels
+- Calories
+- Recipe Link
+
+### Tech Stack:
+- React
+- React Hooks
+- Edamam API
+- Material UI
+
 ### ScreenShot: 
 ![Screenshot](ss.png)
 
