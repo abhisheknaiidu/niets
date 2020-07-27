@@ -4,7 +4,7 @@ import RecipesContainer from './components/RecipesContainer';
 import { makeStyles } from '@material-ui/core';
 import PaginationPage from './components/PaginationPage';
 import Tags from './components/Tags';
-require("dotenv").config();
+/* eslint-disable no-use-before-define */
 
 const useStyles = makeStyles( theme => ({
   app: {
@@ -68,7 +68,7 @@ function App() {
   return (
     <div className={classes.app}>
       <div className = {classes.heading}>
-          <h1 className={classes.header}>NIETS</h1>
+          <h1 className={classes.header}>NIETS 🌱</h1>
           <p className={classes.para}>Naidu's Diet Recipes</p>
         </div>
         <SearchBar submit={searchRecipe} />
