@@ -56,7 +56,7 @@ function App() {
 
 
   const fixedOptions = [];
-  const [value, setValue] = React.useState([...fixedOptions, tags[1]]);
+  const [value, setValue] = React.useState([...fixedOptions]);
 
   // get current recipes
   const indexOfLastRecipe = currentPage * recipesPerPage;

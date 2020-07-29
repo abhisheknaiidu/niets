@@ -16,25 +16,38 @@ const useStyles = makeStyles( theme => ({
 
 function RecipesContainer({value, recipeResult}) {
 
-    // const [filteredRecipes, setFilteredRecipes] = useState([]);
+    // let [filteredRecipes, setFilteredRecipes] = useState([])
     let data = [];
     for(let i=0; i<value.length; i++) {
         data.push(value[i].title);
     }
 
-    // useEffect(() => [
+    // useEffect(() => {
     //     setFilteredRecipes(
-    //     recipeResult.filter(item => item.recipe.healthLabels.includes(data[0]))
-    //     )
-    // ], [value])
+    //   recipeResult.filter(item => {
+    //     for(let i=0; i<data.length; i++) {
+    //       if(item.recipe.healthLabels.includes(data[i])) {
+    //         return item;
+    //       }
+    //     }
+    //   })
+    //  )
+    // }, [value,data,recipeResult])
 
-    const filteredRecipes = recipeResult.filter(item => item.recipe.healthLabels.includes(data[0]));
-    console.log(filteredRecipes);
+    let filteredRecipes = recipeResult.filter(item => {
+      return item.recipe.healthLabels.some( (el) => data.includes(el));
+  })
+    // const filteredRecipes = recipeResult.filter( item => item.recipe.healthLabels.includes(data[0]));
+
 
 
     const classes = useStyles();
     let recipeItems;
 
+    // filteredRecipes = filtered ? filtered : recipeResult;
+    console.log(filteredRecipes);
+
+    filteredRecipes = data.length>0 ? filteredRecipes : recipeResult;
     recipeItems = filteredRecipes.map((item, i) => {
       return (
         <RecipeItem
@@ -59,3 +72,11 @@ function RecipesContainer({value, recipeResult}) {
 }
 
 export default RecipesContainer
+
+
+    //   for(let i=0; i<data.length; i++) {
+    //     if() {
+    //       return item;
+    //     }
+    //   }
+    // });
